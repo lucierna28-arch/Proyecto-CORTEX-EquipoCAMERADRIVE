@@ -51,5 +51,9 @@ CAMERADRIVE no necesita reproducir emociones humanas para cumplir su función pr
 
 <img width="568" height="691" alt="imagen" src="https://github.com/user-attachments/assets/104f8011-313f-4fd6-950f-0dda4bf9a519" />
 
+
 ##Flujo de procesamiento
+
+
+
 <img width="790" height="1535" alt="xx_page-0001" src="https://github.com/user-attachments/assets/cf426b8a-2d1f-49b4-beda-5b138720dca8" />
