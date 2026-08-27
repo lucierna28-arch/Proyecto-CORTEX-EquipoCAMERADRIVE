@@ -46,9 +46,10 @@ Emoción: 2/10
 CAMERADRIVE no necesita reproducir emociones humanas para cumplir su función principal. Sin embargo, puede utilizar estados internos funcionales que permitan modificar su comportamiento según las condiciones.
 
 
-##La Matriz de Sensores
+##Matriz de sensores
 <img width="1138" height="538" alt="image" src="https://github.com/user-attachments/assets/d76fab33-baa1-4410-965d-e61e07319792" />
 
 <img width="568" height="691" alt="imagen" src="https://github.com/user-attachments/assets/104f8011-313f-4fd6-950f-0dda4bf9a519" />
 
-
+##Flujo de procesamiento
+<img width="790" height="1535" alt="xx_page-0001" src="https://github.com/user-attachments/assets/cf426b8a-2d1f-49b4-beda-5b138720dca8" />
