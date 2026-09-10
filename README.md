@@ -97,3 +97,34 @@ El objetivo de este módulo es optimizar la carga cognitiva del sistema y reduci
                │ (Comando Válido)
                ▼
    [ Transmisión al Vehículo ]
+
+import numpy as np
+
+class GatekeeperFilter:
+    def __init__(self, umbral_estabilidad=0.05):
+        self.umbral_estabilidad = umbral_estabilidad
+        self.ultimo_vector = None
+
+    def evaluar_atencion(self, vector_actual):
+        """
+        Filtra el ruido evaluando la variación entre el fotograma actual y el anterior.
+        """
+        if self.ultimo_vector is None:
+            self.ultimo_vector = vector_actual
+            return "COMANDO_INICIAL"
+
+        # Calcular la diferencia porcentual (variación espacial)
+        diferencia = np.linalg.norm(np.array(vector_actual) - np.array(self.ultimo_vector))
+
+        if diferencia < self.umbral_estabilidad:
+            # Clasificado como ruido o temblor menor
+            return "IGNORAR_RUIDO"
+        else:
+            # Movimiento válido detectado
+            self.ultimo_vector = vector_actual
+            return "PROCESAR_COMANDO"
+
+# Ejemplo de uso:
+# gatekeeper = GatekeeperFilter(umbral_estabilidad=0.05)
+# estado = gatekeeper.evaluar_atencion([0.42, 0.51, 0.12])
+# print(estado)
