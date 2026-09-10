@@ -57,3 +57,12 @@ CAMERADRIVE no necesita reproducir emociones humanas para cumplir su función pr
 
 
 <img width="790" height="1535" alt="xx_page-0001" src="https://github.com/user-attachments/assets/cf426b8a-2d1f-49b4-beda-5b138720dca8" />
+
+## 2. Arquitectura de Atención (El "Gatekeeper")
+
+El objetivo de este módulo es optimizar la carga cognitiva del sistema y reducir el ancho de banda de transmisión, filtrando el ruido antes de enviar los comandos al vehículo.
+
+### Reglas de Filtrado y Priorización:
+- **Regla de Estabilidad de Movimiento:** Si la variación espacial de los puntos clave (*landmarks*) de la mano es menor a un umbral de 5% entre fotogramas consecutivos, el mecanismo de atención clasifica la señal como "ruido por temblor" y prioriza mantener el último estado estable del vehículo.
+- **Regla de Intencionalidad (Gestos de Activación):** Para evitar falsos positivos, ninguna función crítica (como aceleración o frenado de emergencia) se ejecutará a menos que el sistema detecte un **gesto de confirmación** previo (por ejemplo, cerrar el puño durante 0.3 segundos).
+- **Regla de Supresión de Carga Cognitiva:** Si el flujo de entrada de datos supera los límites operativos normales (saturación de fotogramas por segundo o comandos superpuestos), el mecanismo descartará los movimientos secundarios de los dedos y priorizará únicamente los vectores principales de dirección y el freno.
