@@ -62,7 +62,38 @@ CAMERADRIVE no necesita reproducir emociones humanas para cumplir su función pr
 
 El objetivo de este módulo es optimizar la carga cognitiva del sistema y reducir el ancho de banda de transmisión, filtrando el ruido antes de enviar los comandos al vehículo.
 
-### Reglas de Filtrado y Priorización:
-- **Regla de Estabilidad de Movimiento:** Si la variación espacial de los puntos clave (*landmarks*) de la mano es menor a un umbral de 5% entre fotogramas consecutivos, el mecanismo de atención clasifica la señal como "ruido por temblor" y prioriza mantener el último estado estable del vehículo.
-- **Regla de Intencionalidad (Gestos de Activación):** Para evitar falsos positivos, ninguna función crítica (como aceleración o frenado de emergencia) se realizará solo cuando el sistema detecte un **gesto de confirmación** previo (por ejemplo, cerrar el puño durante 0.3 segundos).
-- **Regla de Supresión de Carga Cognitiva:** Si el flujo de entrada de datos tiene rangos muy altos, el sistema descartará los movimientos secundarios de los dedos y priorizará únicamente los vectores principales de dirección y el freno.
+## 2. Arquitectura de Atención (El "Gatekeeper")
+
+El objetivo de este módulo es optimizar la carga cognitiva del sistema y reducir el ancho de banda de transmisión, filtrando el ruido antes de enviar los comandos al vehículo.
+
+### 2.1. Definición de "Ruido" en el Sistema
+* **Ruido visual:** Micro-temblores en las manos del operador, cambios bruscos de iluminación o gestos involuntarios en segundo plano.
+* **Ruido de datos:** Envío redundante y masivo de coordenadas continuas cuando el vehículo debe mantenerse en un estado estable (ej. velocidad crucero o detenido).
+
+### 2.2. Reglas de Filtrado y Priorización
+* **Regla de Estabilidad de Movimiento:** Si la variación espacial de los puntos clave (*landmarks*) de la mano es menor a un umbral del 5% entre fotogramas consecutivos, el mecanismo de atención clasifica la señal como "ruido por temblor" y prioriza mantener el último estado estable del vehículo.
+* **Regla de Intencionalidad (Gestos de Activación):** Para evitar falsos positivos, ninguna función crítica (como aceleración o frenado de emergencia) se ejecutará a menos que el sistema detecte un **gesto de confirmación** previo (por ejemplo, mantener el puño cerrado durante un umbral de tiempo determinado).
+* **Regla de Supresión de Carga Cognitiva:** Si el flujo de entrada de datos supera los límites operativos normales, el mecanismo descartará los movimientos secundarios de los dedos y priorizará únicamente los vectores principales de dirección y el sistema de frenado.
+
+---
+
+### 2.3. Diagrama de Flujo del Gatekeeper
+
+```text
+[ Cámara / Visión Artificial ]
+               │
+               ▼
+   { Captura de Fotograma }
+               │
+               ▼
+┌──────────────────────────────┐
+│  Filtro de Atención (Gate)   │ ──(¿Es Ruido / Variación < 5%?)──► [ Mantener Estado Anterior ]
+└──────────────┬───────────────┘
+               │ (Pasa el filtro)
+               ▼
+┌──────────────────────────────┐
+│ Verificación de Intencionalidad│ ──(¿Falta gesto de confirmación?)──► [ Descartar Comando ]
+└──────────────┬───────────────┘
+               │ (Comando Válido)
+               ▼
+   [ Transmisión al Vehículo ]
