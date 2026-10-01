@@ -95,3 +95,19 @@ las interacciones.
 | Comandos generados | Episódica | Comandos de dirección producidos durante una interacción. | Permite relacionar los movimientos detectados con las acciones realizadas. |
 | Errores o situaciones inesperadas | Episódica | Eventos en los que la detección o interpretación presentó algún problema. | Ayuda a identificar situaciones que pueden afectar la interacción. |
 | Resultados de la interacción | Episódica | Información sobre cómo terminó o respondió el sistema ante una acción. | Permite conservar el contexto de lo ocurrido durante una sesión. |
+
+
+### Organización de la memoria
+
+La **memoria semántica** representa el conocimiento que CAMERADRIVE
+necesita para funcionar, como sus reglas, gestos, condiciones de
+detección y estados del sistema.
+
+La **memoria episódica** representa las experiencias concretas que
+ocurren durante las sesiones, como los movimientos detectados, los
+comandos generados y las situaciones inesperadas.
+
+Por ahora, esta estructura funciona como una propuesta de organización
+de la base de conocimiento. No se busca llenar una base de datos real,
+sino definir qué información necesitaría almacenar CAMERADRIVE y cómo
+se organizaría.
