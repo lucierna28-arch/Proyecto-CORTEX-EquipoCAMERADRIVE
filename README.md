@@ -73,3 +73,25 @@ El objetivo de este módulo es hacer más eficiente el sistema, por medio de la 
 
 
 **Regla de Supresión de Carga Cognitiva:** Si el flujo de entrada de datos supera los límites operativos normales (saturación de fotogramas por segundo o comandos superpuestos), el mecanismo descartará los movimientos secundarios de los dedos y priorizará únicamente los vectores principales de dirección y el freno.
+
+
+
+### Estructura de la Base de Conocimiento
+
+La memoria a largo plazo de CAMERADRIVE se organiza en dos tipos de
+información: **memoria semántica**, que contiene los conocimientos y
+reglas que el agente necesita para funcionar, y **memoria episódica**,
+que reúne información de experiencias o situaciones ocurridas durante
+las interacciones.
+
+| Categoría | Tipo de memoria | ¿Qué guarda? | ¿Para qué le sirve a CAMERADRIVE? |
+|---|---|---|---|
+| Reglas de interacción | Semántica | Reglas que indican cómo debe actuar el agente ante determinadas señales. | Le permite responder de forma coherente ante los movimientos del usuario. |
+| Gestos y movimientos | Semántica | Relación entre determinados movimientos de las manos y los comandos de dirección. | Le ayuda a interpretar qué acción representa cada movimiento. |
+| Condiciones de detección | Semántica | Criterios para determinar cuándo una detección es válida. | Evita que cualquier movimiento o detección genere una acción. |
+| Estados del sistema | Semántica | Los diferentes estados en los que puede encontrarse CAMERADRIVE. | Permite saber cómo debe comportarse el agente en cada situación. |
+| Sesiones de interacción | Episódica | Información general sobre cada interacción realizada. | Permite conservar un registro de las experiencias del agente. |
+| Movimientos detectados | Episódica | Movimientos que fueron identificados durante una sesión. | Permite consultar qué movimientos ocurrieron anteriormente. |
+| Comandos generados | Episódica | Comandos de dirección producidos durante una interacción. | Permite relacionar los movimientos detectados con las acciones realizadas. |
+| Errores o situaciones inesperadas | Episódica | Eventos en los que la detección o interpretación presentó algún problema. | Ayuda a identificar situaciones que pueden afectar la interacción. |
+| Resultados de la interacción | Episódica | Información sobre cómo terminó o respondió el sistema ante una acción. | Permite conservar el contexto de lo ocurrido durante una sesión. |
