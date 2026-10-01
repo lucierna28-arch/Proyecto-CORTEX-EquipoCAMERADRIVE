@@ -1,11 +1,11 @@
 # Proyecto-CORTEX-EquipoCAMERADRIVE
 Asistente de conducción a distancia y virtual
 
-##Perfil del agente
+## Perfil del agente
 <img width="1301" height="479" alt="image" src="https://github.com/user-attachments/assets/bb333087-8e5c-4cec-ac2a-8c2a29628bf7" />
 
 
-##Mapa de procesos
+## Mapa de procesos
 
 <img width="493" height="593" alt="Captura de pantalla 2026-08-20 103902" src="https://github.com/user-attachments/assets/581c4551-8bae-4b8e-9ec9-375bdf953da5" />
 
@@ -46,27 +46,27 @@ Emoción: 2/10
 CAMERADRIVE no necesita reproducir emociones humanas para cumplir su función principal. Sin embargo, puede utilizar estados internos funcionales que permitan modificar su comportamiento según las condiciones.
 
 
-##Matriz de sensores
+## Matriz de sensores
 <img width="1138" height="538" alt="image" src="https://github.com/user-attachments/assets/d76fab33-baa1-4410-965d-e61e07319792" />
 
 <img width="568" height="691" alt="imagen" src="https://github.com/user-attachments/assets/104f8011-313f-4fd6-950f-0dda4bf9a519" />
 
 
-##Flujo de procesamiento
+## Flujo de procesamiento
 
 
 
 <img width="790" height="1535" alt="xx_page-0001" src="https://github.com/user-attachments/assets/cf426b8a-2d1f-49b4-beda-5b138720dca8" />
 
-##Arquitectura de Atención
+## Arquitectura de Atención
 
 El objetivo de este módulo es hacer más eficiente el sistema, por medio de la carga cognitiva del sistema y reducir el ancho de banda de transmisión, filtrando el ruido antes de enviar los comandos al vehículo.
 
-###1. Definición de "Ruido" en el Sistema
+### 1. Definición de "Ruido" en el Sistema
 * **Ruido visual:** Micro-temblores en las manos del operador, cambios bruscos de iluminación o gestos involuntarios en segundo plano.
 * **Ruido de datos:** Envío redundante y masivo de coordenadas continuas cuando el vehículo debe mantenerse en un estado estable (ej. velocidad crucero o detenido).
 
-###2. Reglas de Filtrado y Priorización
+### 2. Reglas de Filtrado y Priorización
 * **Regla de Estabilidad de Movimiento:** Si la variación espacial de los puntos clave (*landmarks*) de la mano es menor a un umbral del 5% entre fotogramas consecutivos, el mecanismo de atención clasifica la señal como "ruido por temblor" y prioriza mantener el último estado estable del vehículo.
 * **Regla de Intencionalidad (Gestos de Activación):** Para evitar falsos positivos, ninguna función crítica (como aceleración o frenado de emergencia) se ejecutará a menos que el sistema detecte un **gesto de confirmación** previo (por ejemplo, mantener el puño cerrado durante un umbral de tiempo determinado).
 * **Regla de Supresión de Carga Cognitiva:** Si el flujo de entrada de datos supera los límites operativos normales, el mecanismo descartará los movimientos secundarios de los dedos y priorizará únicamente los vectores principales de dirección y el sistema de frenado.
