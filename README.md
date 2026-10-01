@@ -76,7 +76,7 @@ El objetivo de este módulo es hacer más eficiente el sistema, por medio de la 
 
 
 
-### Estructura de la Base de Conocimiento
+### Esquema de la base de conocimiento
 
 La memoria a largo plazo de CAMERADRIVE se organiza en dos tipos de
 información: **memoria semántica**, que contiene los conocimientos y
