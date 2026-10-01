@@ -99,13 +99,9 @@ las interacciones.
 
 ### Organización de la memoria
 
-La **memoria semántica** representa el conocimiento que CAMERADRIVE
-necesita para funcionar, como sus reglas, gestos, condiciones de
-detección y estados del sistema.
+**Memoria semántica:** representa el conocimiento que CAMERADRIVE necesita para funcionar, como sus reglas, gestos, condiciones de detección y estados del sistema.
 
-La **memoria episódica** representa las experiencias concretas que
-ocurren durante las sesiones, como los movimientos detectados, los
-comandos generados y las situaciones inesperadas.
+**Memoria episódica:** representa las experiencias concretas que ocurren durante las sesiones, como los movimientos detectados, los comandos generados y las situaciones inesperadas.
 
 Por ahora, esta estructura funciona como una propuesta de organización
 de la base de conocimiento. No se busca llenar una base de datos real,
