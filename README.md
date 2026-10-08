@@ -150,8 +150,6 @@ La memoria de trabajo representa el contexto temporal de la interacción.
 
 Así se eliminan los eventos temporales de la sesión, pero se conserva la información permanente almacenada en la Memoria a Largo Plazo.
 
-En otras palabras:
-
 - **LTM:** conserva el conocimiento permanente del agente.
 - **RAM:** conserva temporalmente el contexto de la interacción actual.
 - **10 minutos sin interacción:** se limpia la RAM.
