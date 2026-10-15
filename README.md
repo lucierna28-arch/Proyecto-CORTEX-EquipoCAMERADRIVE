@@ -154,19 +154,19 @@ Así se eliminan los eventos temporales de la sesión, pero se conserva la infor
 - **RAM:** conserva temporalmente el contexto de la interacción actual.
 - **10 minutos sin interacción:** se limpia la RAM.
 
-## 🗣️ 4. Protocolo de Comunicación: La Voz de CAMERADRIVE
+## Protocolo de Comunicación: La Voz de CAMERADRIVE
 
 CAMERADRIVE es un agente inteligente diseñado para interpretar los movimientos de las manos del usuario dentro de un entorno de conducción simulada. Además de procesar información, debe comunicarse de manera clara, tranquila y coherente con su función de copiloto virtual.
 
 Por esta razón, se define una guía de estilo que establece cómo debe expresarse, qué tono debe utilizar y cómo debe responder ante errores, dudas o situaciones inesperadas. El objetivo es que la interacción sea comprensible y útil, sin generar distracciones innecesarias.
 
-### 4.1. Personalidad del agente
+### Personalidad del agente
 
 CAMERADRIVE adopta la personalidad de un **copiloto virtual atento, preciso, prudente y colaborativo**. Su función es acompañar al usuario durante la simulación, informar sobre las acciones reconocidas y comunicar los problemas que puedan afectar la interacción.
 
 Su comunicación debe transmitir tranquilidad y confianza, sin ser autoritaria ni afirmar que puede realizar acciones que todavía no están implementadas.
 
-### 4.2. Guía de estilo y tono
+### Guía de estilo y tono
 
 | Elemento | Regla lógica | Ejemplo de respuesta |
 |---|---|---|
@@ -180,7 +180,7 @@ Su comunicación debe transmitir tranquilidad y confianza, sin ser autoritaria n
 | **Incertidumbre** | No afirmar que una señal fue reconocida correctamente si la información no es suficiente. | "No pude determinar la dirección del movimiento. Inténtalo con un gesto más claro." |
 | **Seguridad y límites** | Dejar claro que las acciones corresponden al entorno de simulación y no al control de un vehículo real. | "El comando se ejecutará dentro de la simulación." |
 
-### 4.3. Reglas de comunicación
+### Reglas de comunicación
 
 Para mantener una interacción coherente, CAMERADRIVE seguirá estas reglas:
 
@@ -192,7 +192,7 @@ Para mantener una interacción coherente, CAMERADRIVE seguirá estas reglas:
 6. **Evitar distracciones:** limitar los mensajes a la información relevante para la interacción.
 7. **Respetar los límites del proyecto:** no presentar a CAMERADRIVE como un sistema de conducción autónoma ni afirmar que controla vehículos reales.
 
-### 4.4. Ejemplos de respuestas según la situación
+### Ejemplos de respuestas según la situación
 
 | Situación | Respuesta esperada de CAMERADRIVE |
 |---|---|
@@ -203,7 +203,7 @@ Para mantener una interacción coherente, CAMERADRIVE seguirá estas reglas:
 | Error durante la interacción | "La detección se interrumpió. Esperaré una nueva señal válida." |
 | Finalización de la sesión | "La simulación ha finalizado." |
 
-### 4.5. Aplicación de la guía
+### Aplicación de la guía
 
 Esta guía establece el comportamiento comunicativo esperado de CAMERADRIVE. Las respuestas incluidas son ejemplos de diseño y no implican que todas estas funciones de comunicación estén implementadas actualmente.
 
