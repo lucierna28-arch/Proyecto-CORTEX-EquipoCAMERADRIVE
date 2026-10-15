@@ -218,13 +218,11 @@ Para mantener una interacción coherente, CAMERADRIVE seguirá estas reglas:
 
 ## El Guion maestro: Escenarios de interacción
 
-### Objetivo
+Este escenario permiten visualizar cómo debería responder el agente ante movimientos claros, señales ambiguas, pérdida de detección y recuperación del seguimiento de las manos.
 
-Representar, mediante guiones en formato Markdown, diferentes situaciones de interacción entre el usuario y CAMERADRIVE. Estos escenarios permiten visualizar cómo debería responder el agente ante movimientos claros, señales ambiguas, pérdida de detección y recuperación del seguimiento de las manos.
+Las respuestas de CAMERADRIVE representan indicadores visuales y señales de advertencia, no mensajes de voz ni conversaciones textuales reales.
 
-Aunque se utiliza un formato similar al de un chat, las respuestas de CAMERADRIVE representan **indicadores visuales y señales de advertencia**, no mensajes de voz ni conversaciones textuales reales.
-
-### Escenario 1. Detección correcta de un movimiento
+### Escenario 1: Detección correcta de un movimiento
 
 **Situación:** El usuario realiza un movimiento claro hacia la izquierda frente a la cámara.
 
@@ -238,7 +236,7 @@ Aunque se utiliza un formato similar al de un chat, las respuestas de CAMERADRIV
 
 **Resultado esperado:** El agente reconoce un movimiento válido y presenta el indicador correspondiente en el entorno de simulación.
 
-### Escenario 2. Movimiento ambiguo
+### Escenario 2: Movimiento ambiguo
 
 **Situación:** El usuario mueve las manos de forma irregular y el agente no puede determinar con claridad la dirección deseada.
 
@@ -252,7 +250,7 @@ Aunque se utiliza un formato similar al de un chat, las respuestas de CAMERADRIV
 
 **Resultado esperado:** El agente evita generar una orden de dirección basada en una interpretación incierta y espera una señal más confiable.
 
-### Escenario 3. Pérdida de detección
+### Escenario 3: Pérdida de detección
 
 **Situación:** Las manos salen del campo de visión de la cámara o dejan de detectarse correctamente.
 
@@ -266,6 +264,35 @@ Aunque se utiliza un formato similar al de un chat, las respuestas de CAMERADRIV
 
 **Resultado esperado:** El agente evita interpretar movimientos que no puede observar y espera a recuperar una detección válida.
 
-### Escenario 4. Movimiento accidental o demasiado pequeño
+### Escenario 4: Movimiento accidental o demasiado pequeño
 
-**Situación:** El usuario realiza un desplazamiento mínimo
+**Situación:** El usuario realiza un desplazamiento mínimo de las manos que podría confundirse con una intención de dirección.
+
+> **Usuario:** Realiza un movimiento leve e involuntario de las manos.
+>
+> **CAMERADRIVE:** Evalúa la magnitud y la continuidad del movimiento.
+>
+> **CAMERADRIVE:** Determina que la señal no cumple los criterios establecidos para generar una orden.
+>
+> **CAMERADRIVE — Indicador visual:** Sin cambio de dirección.
+
+**Resultado esperado:** Si el movimiento no supera los criterios de detección definidos, el agente lo descarta para evitar cambios de dirección involuntarios.
+
+### Escenario 5: Recuperación de la detección
+
+**Situación:** Después de perder temporalmente las manos, el usuario vuelve a colocarlas frente a la cámara.
+
+> **Usuario:** Coloca nuevamente las manos dentro del campo de visión.
+>
+> **CAMERADRIVE:** Detecta las manos y verifica la confiabilidad del seguimiento.
+>
+> **CAMERADRIVE:** Confirma que existe información suficiente para interpretar el movimiento.
+>
+> **CAMERADRIVE — Indicador visual:** Detección recuperada. Sistema listo para interpretar movimientos.
+
+**Resultado esperado:** El agente retoma la interpretación de movimientos cuando recupera una detección confiable, sin asumir una dirección antes de contar con información suficiente.
+
+### Conclusión
+
+Estos guiones representan situaciones previstas para evaluar el comportamiento de CAMERADRIVE en un entorno de simulación. Su propósito es establecer cómo debería reaccionar el agente ante señales válidas, ambiguas o incompletas, priorizando la claridad de los indicadores, la consistencia de las respuestas y el manejo de la incertidumbre.
+Los escenarios describen el comportamiento esperado del sistema. Su funcionamiento real dependerá de la implementación de los módulos de visión por computador, los criterios de confiabilidad y las reglas de interpretación del movimiento.
