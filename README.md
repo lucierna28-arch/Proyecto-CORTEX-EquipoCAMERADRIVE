@@ -214,3 +214,58 @@ Para mantener una interacción coherente, CAMERADRIVE seguirá estas reglas:
 ### Diagrama de flujo
 
 <img width="545" height="474" alt="image" src="https://github.com/user-attachments/assets/e4f6c23a-da00-42b5-ae2c-f8563ae5ace6" />
+
+
+## El Guion maestro: Escenarios de interacción
+
+### Objetivo
+
+Representar, mediante guiones en formato Markdown, diferentes situaciones de interacción entre el usuario y CAMERADRIVE. Estos escenarios permiten visualizar cómo debería responder el agente ante movimientos claros, señales ambiguas, pérdida de detección y recuperación del seguimiento de las manos.
+
+Aunque se utiliza un formato similar al de un chat, las respuestas de CAMERADRIVE representan **indicadores visuales y señales de advertencia**, no mensajes de voz ni conversaciones textuales reales.
+
+### Escenario 1. Detección correcta de un movimiento
+
+**Situación:** El usuario realiza un movimiento claro hacia la izquierda frente a la cámara.
+
+> **Usuario:** Realiza un movimiento de las manos hacia la izquierda.
+>
+> **CAMERADRIVE:** Detecta las manos y analiza la dirección del movimiento.
+>
+> **CAMERADRIVE:** Verifica que la detección sea confiable y que la trayectoria sea consistente.
+>
+> **CAMERADRIVE — Indicador visual:** Movimiento hacia la izquierda detectado.
+
+**Resultado esperado:** El agente reconoce un movimiento válido y presenta el indicador correspondiente en el entorno de simulación.
+
+### Escenario 2. Movimiento ambiguo
+
+**Situación:** El usuario mueve las manos de forma irregular y el agente no puede determinar con claridad la dirección deseada.
+
+> **Usuario:** Realiza movimientos poco definidos con las manos.
+>
+> **CAMERADRIVE:** Analiza la posición y la trayectoria de las manos.
+>
+> **CAMERADRIVE:** Identifica que el movimiento no es suficientemente claro para interpretarlo con confianza.
+>
+> **CAMERADRIVE — Señal de advertencia:** Movimiento ambiguo. Esperando una señal más clara.
+
+**Resultado esperado:** El agente evita generar una orden de dirección basada en una interpretación incierta y espera una señal más confiable.
+
+### Escenario 3. Pérdida de detección
+
+**Situación:** Las manos salen del campo de visión de la cámara o dejan de detectarse correctamente.
+
+> **Usuario:** Retira las manos del campo de visión de la cámara.
+>
+> **CAMERADRIVE:** No detecta las manos en la imagen.
+>
+> **CAMERADRIVE:** Registra temporalmente la ausencia de detección.
+>
+> **CAMERADRIVE — Señal de advertencia:** No se detectan las manos. Verifica tu posición frente a la cámara.
+
+**Resultado esperado:** El agente evita interpretar movimientos que no puede observar y espera a recuperar una detección válida.
+
+### Escenario 4. Movimiento accidental o demasiado pequeño
+
+**Situación:** El usuario realiza un desplazamiento mínimo
