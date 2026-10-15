@@ -204,3 +204,6 @@ Para mantener una interacción coherente, CAMERADRIVE seguirá estas reglas:
 | Finalización de la sesión | "La simulación ha finalizado." |
 
 
+### Diagrama de flujo
+
+<img width="545" height="474" alt="image" src="https://github.com/user-attachments/assets/e4f6c23a-da00-42b5-ae2c-f8563ae5ace6" />
