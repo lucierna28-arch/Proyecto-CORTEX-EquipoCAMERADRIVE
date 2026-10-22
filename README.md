@@ -303,35 +303,30 @@ Los escenarios describen el comportamiento esperado del sistema. Su funcionamien
 
 Diseñar el flujo lógico de toma de decisiones de CAMERADRIVE mediante un árbol de decisión que represente cómo el agente procesa la información capturada por la cámara, evalúa la confiabilidad de la detección e interpreta los movimientos de las manos para generar una respuesta visual en un entorno de simulación.
 
-Descripción del algoritmo
+### Descripción del algoritmo
 
-El árbol de decisión comienza con la captura de una imagen mediante la cámara. A partir de esta información, el agente sigue una secuencia de comprobaciones que determina si puede interpretar el movimiento observado.
-
-En primer lugar, verifica si las manos están presentes en la imagen. Si no se detectan, el sistema contempla mostrar una advertencia y esperar una nueva captura. Si las manos son detectadas, se evalúa la confiabilidad de la información antes de continuar con la interpretación.
-
+El árbol de decisión comienza con la captura de una imagen mediante la cámara. A partir de esta información, el agente sigue una secuencia de comprobaciones que determina si puede interpretar el movimiento observado. En primer lugar, verifica si las manos están presentes en la imagen. Si no se detectan, el sistema contempla mostrar una advertencia y esperar una nueva captura. Si las manos son detectadas, se evalúa la confiabilidad de la información antes de continuar con la interpretación.
 Posteriormente, el agente analiza el movimiento para determinar si su dirección es clara y si cumple los criterios establecidos. Cuando la señal es válida, puede clasificar el movimiento y asociarlo con el indicador correspondiente. En cambio, si el movimiento es ambiguo, insuficiente o poco confiable, el diseño contempla evitar una nueva orden de dirección basada en esa información y comunicar la situación mediante una señal visual.
 
 Este proceso busca que cada decisión tenga una salida definida y que las situaciones de incertidumbre no se conviertan automáticamente en órdenes de dirección.
 
-Reglas lógicas principales
+### Reglas lógicas principales
 
-Detección: si las manos no se detectan, se contempla una advertencia y una nueva captura.
+#### Detección: si las manos no se detectan, se contempla una advertencia y una nueva captura.
 
-Confiabilidad: si la detección no cumple los criterios establecidos, no se continúa con la clasificación del movimiento.
+#### Confiabilidad: si la detección no cumple los criterios establecidos, no se continúa con la clasificación del movimiento.
 
-Interpretación: si el movimiento es claro y válido, se clasifica según las reglas de dirección definidas.
+#### Interpretación: si el movimiento es claro y válido, se clasifica según las reglas de dirección definidas.
 
-Ambigüedad: si no es posible interpretar el movimiento con suficiente claridad, se contempla una advertencia en lugar de generar una nueva orden.
+#### Ambigüedad: si no es posible interpretar el movimiento con suficiente claridad, se contempla una advertencia en lugar de generar una nueva orden.
 
-Continuidad: después de procesar una señal o una advertencia, el sistema vuelve al ciclo de captura para evaluar nueva información.
+#### Continuidad: después de procesar una señal o una advertencia, el sistema vuelve al ciclo de captura para evaluar nueva información.
 
 
 <img width="794" height="633" alt="image" src="https://github.com/user-attachments/assets/7037daa3-183e-4f10-982b-b067a15a3e6c" />
 
-Importancia del razonamiento lógico
+## Importancia del razonamiento lógico
 
-El árbol de decisión permite organizar las reglas de CAMERADRIVE de manera explícita, facilitando la comprensión de su comportamiento y la identificación de posibles errores. Además, permite comprobar que las situaciones normales y excepcionales tengan una respuesta prevista.
+El árbol de decisión permite organizar las reglas de CAMERADRIVE de manera explícita, facilitando la comprensión de su comportamiento y la identificación de posibles errores. Además, permite comprobar que las situaciones normales y excepcionales tengan una respuesta prevista. El diseño prioriza la consistencia de las decisiones, la identificación de señales ambiguas y el manejo de la incertidumbre. De esta forma, se establece una base lógica que podrá probarse y ajustarse en las siguientes etapas del proyecto.
 
-El diseño prioriza la consistencia de las decisiones, la identificación de señales ambiguas y el manejo de la incertidumbre. De esta forma, se establece una base lógica que podrá probarse y ajustarse en las siguientes etapas del proyecto.
-
-Nota: este diagrama representa el diseño conceptual del algoritmo. La confiabilidad de la detección, los criterios de validez del movimiento y las respuestas del agente deberán definirse y validarse durante la implementación.
+Nota: el diagrama representa el diseño conceptual del algoritmo. La confiabilidad de la detección, los criterios de validez del movimiento y las respuestas del agente deberán definirse y validarse durante la implementación.
