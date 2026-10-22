@@ -296,3 +296,11 @@ Las respuestas de CAMERADRIVE representan indicadores visuales y señales de adv
 
 Estos guiones representan situaciones previstas para evaluar el comportamiento de CAMERADRIVE en un entorno de simulación. Su propósito es establecer cómo debería reaccionar el agente ante señales válidas, ambiguas o incompletas, priorizando la claridad de los indicadores, la consistencia de las respuestas y el manejo de la incertidumbre.
 Los escenarios describen el comportamiento esperado del sistema. Su funcionamiento real dependerá de la implementación de los módulos de visión por computador, los criterios de confiabilidad y las reglas de interpretación del movimiento.
+
+
+
+
+## El Árbol de la verdad
+
+<img width="794" height="633" alt="image" src="https://github.com/user-attachments/assets/7037daa3-183e-4f10-982b-b067a15a3e6c" />
+
