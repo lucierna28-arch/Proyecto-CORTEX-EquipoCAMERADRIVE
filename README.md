@@ -371,7 +371,7 @@ El proceso comienza con la captura de una imagen. Posteriormente, el agente veri
 Cuando la información es insuficiente, poco confiable o ambigua, el agente evita generar un nuevo comando y espera una nueva captura.
 
 
-### 6.2 Pruebas de escritorio (Dry Run)
+### Pruebas
 
 Con el propósito de comprobar el funcionamiento lógico del árbol de decisiones, se realizaron cuatro pruebas simuladas que representan diferentes situaciones que CAMERADRIVE podría encontrar durante la detección e interpretación de movimientos.
 
