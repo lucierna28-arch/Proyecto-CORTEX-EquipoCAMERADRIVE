@@ -330,3 +330,60 @@ Este proceso busca que cada decisión tenga una salida definida y que las situac
 El árbol de decisión permite organizar las reglas de CAMERADRIVE de manera explícita, facilitando la comprensión de su comportamiento y la identificación de posibles errores. Además, permite comprobar que las situaciones normales y excepcionales tengan una respuesta prevista. El diseño prioriza la consistencia de las decisiones, la identificación de señales ambiguas y el manejo de la incertidumbre. De esta forma, se establece una base lógica que podrá probarse y ajustarse en las siguientes etapas del proyecto.
 
 Nota: el diagrama representa el diseño conceptual del algoritmo. La confiabilidad de la detección, los criterios de validez del movimiento y las respuestas del agente deberán definirse y validarse durante la implementación.
+
+
+
+## Protocolo Anti-sesgos
+
+### Sesgo cognitivo identificado: Sesgo de confirmación
+
+El sesgo de confirmación consiste en favorecer la información que respalda una interpretación inicial, ignorando o restando importancia a los datos que podrían contradecirla.
+
+En CAMERADRIVE, este sesgo podría presentarse durante la interpretación de los movimientos de las manos. Por ejemplo, si el sistema identifica inicialmente un movimiento hacia la izquierda, podría mantener esa interpretación incluso cuando las detecciones posteriores indiquen un cambio de dirección.
+
+Esto representaría un riesgo para la precisión de las decisiones del agente.
+
+### Contra-medida lógica
+
+Para mitigar este sesgo, CAMERADRIVE aplicará una regla de verificación antes de generar cualquier comando de dirección.
+
+El agente deberá:
+
+1. Analizar la posición y trayectoria de la mano.
+2. Comparar las detecciones recientes para comprobar su coherencia.
+3. Identificar señales que contradigan la interpretación inicial.
+4. Evitar generar un comando cuando existan contradicciones o incertidumbre.
+5. Esperar una nueva detección confiable antes de continuar.
+
+**Regla de seguridad:** Si la información visual no es suficiente o presenta contradicciones, CAMERADRIVE no debe asumir una dirección. Debe descartar la interpretación dudosa y esperar información más confiable.
+
+### 5.3 Principio ético
+
+La precisión debe prevalecer sobre la rapidez cuando exista incertidumbre. CAMERADRIVE debe evitar decisiones basadas en interpretaciones incompletas y priorizar una interacción segura y confiable.
+
+
+## Dry Run
+
+<img width="1536" height="1024" alt="Flujo de detección manual cósmico" src="https://github.com/user-attachments/assets/6d580995-96be-4ecc-bd02-aa2d7f8ebc90" />
+
+El árbol de decisiones representa el proceso lógico por el que CAMERADRIVE interpreta los movimientos de las manos captados por una cámara y define si existe información suficiente para generar un cambio de dirección. 
+El proceso comienza con la captura de una imagen. Posteriormente, el agente verifica si detecta las manos y si la información obtenida es confiable. Si ambas condiciones se cumplen, analiza la posición y trayectoria del movimiento para determinar si es claro y coherente. Finalmente, clasifica la dirección identificada en tres posibilidades: izquierda, centro o derecha. 
+Cuando la información es insuficiente, poco confiable o ambigua, el agente evita generar un nuevo comando y espera una nueva captura.
+
+
+### 6.2 Pruebas de escritorio (Dry Run)
+
+Con el propósito de comprobar el funcionamiento lógico del árbol de decisiones, se realizaron cuatro pruebas simuladas que representan diferentes situaciones que CAMERADRIVE podría encontrar durante la detección e interpretación de movimientos.
+
+| Caso | Situación evaluada | Respuesta del agente | Resultado |
+|---|---|---|---|
+| 1 | Detección de un movimiento claro hacia la izquierda. | Identifica la dirección y genera el comando correspondiente. | Correcto |
+| 2 | La cámara no detecta ninguna mano. | No genera comandos y espera una nueva captura. | Correcto |
+| 3 | La detección de la mano presenta baja confiabilidad. | Descarta la detección y espera nueva información. | Correcto |
+| 4 | Se presentan movimientos ambiguos o señales contradictorias. | Evita generar un comando y espera una detección más clara. | Correcto |
+
+**Análisis de las pruebas:**
+
+Los escenarios simulados permitieron comprobar que el árbol contempla diferentes condiciones de funcionamiento, incluyendo situaciones de incertidumbre. Se verificó que, cuando la información no es suficiente para determinar una dirección, el agente evita generar comandos y retorna al proceso de captura.
+
+Debido a esto, se estableció la necesidad de mantener rutas de retorno y respuestas específicas para las detecciones fallidas o ambiguas.
