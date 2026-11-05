@@ -357,7 +357,7 @@ El agente deberá:
 
 **Regla de seguridad:** Si la información visual no es suficiente o presenta contradicciones, CAMERADRIVE no debe asumir una dirección. Debe descartar la interpretación dudosa y esperar información más confiable.
 
-### 5.3 Principio ético
+### Principio ético
 
 La precisión debe prevalecer sobre la rapidez cuando exista incertidumbre. CAMERADRIVE debe evitar decisiones basadas en interpretaciones incompletas y priorizar una interacción segura y confiable.
 
