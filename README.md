@@ -400,7 +400,7 @@ La velocidad nunca debe estar por encima de la seguridad.
 
 **Sistema de motivación y control**
 
-## 6. Sistema de Motivación y Control
+## Sistema de Motivación y Control
 
 ### 6.1 Objetivo principal del agente
 
@@ -408,7 +408,7 @@ La motivación principal de CAMERADRIVE es proporcionar una interacción segura,
 
 El agente no debe priorizar la rapidez por encima de la seguridad. Su objetivo es interpretar correctamente las señales recibidas, evitar respuestas ante información dudosa y mantener informado al usuario durante el proceso.
 
-### 6.2 Prioridades numéricas
+### Prioridades numéricas
 
 CAMERADRIVE establece las siguientes prioridades para orientar sus decisiones:
 
@@ -422,7 +422,7 @@ CAMERADRIVE establece las siguientes prioridades para orientar sus decisiones:
 
 La escala representa la importancia relativa de cada factor. Los valores no son resultados de mediciones experimentales.
 
-### 6.3 Función de recompensa (Reward Function)
+### Función de recompensa (Reward Function)
 
 La función de recompensa representa los criterios que CAMERADRIVE debe considerar para evaluar la calidad de su comportamiento.
 
@@ -441,13 +441,13 @@ Cada variable se considera en una escala de 0 a 1.
 
 La seguridad también funciona como una condición obligatoria: si la detección no es confiable o existe una situación de riesgo, el agente debe evitar generar un nuevo comando, independientemente de la puntuación obtenida en los demás factores.
 
-### 6.4 Regla lógica de equilibrio
+### Regla lógica de equilibrio
 
 CAMERADRIVE prioriza la seguridad y la precisión sobre la velocidad. Cuando identifica información visual incompleta, movimientos contradictorios o una detección poco confiable, evita generar comandos y espera una nueva captura.
 
 Cuando la interpretación es correcta y cumple las condiciones establecidas, el agente puede continuar con la clasificación del movimiento y mostrar el indicador correspondiente.
 
-### 6.5 Métricas de éxito
+### Métricas de éxito
 
 Para evaluar el comportamiento esperado del agente se establecen los siguientes criterios:
 
@@ -457,7 +457,7 @@ Para evaluar el comportamiento esperado del agente se establecen los siguientes 
 - **Comunicación visual:** mostrar indicadores comprensibles y oportunos.
 - **Estabilidad:** recuperarse de errores de detección sin interrumpir innecesariamente el proceso.
 
-### 6.6 Principio de motivación
+### Principio de motivación
 
 El éxito de CAMERADRIVE no consiste en responder lo más rápido posible, sino en ofrecer una interpretación confiable y una interacción segura. Cuando no cuenta con información suficiente, reconocer la incertidumbre y esperar es una decisión correcta.
 
@@ -491,9 +491,9 @@ Respuesta: detener la interacción de simulación, mostrar un mensaje de apoyo y
 
 **Integración y presentación final**
 
-## 7. Integración Final del Proyecto
+## Integración Final del Proyecto
 
-### 7.1 Consolidación de las fases
+### Consolidación de las fases
 
 Durante el desarrollo de CAMERADRIVE se construyó progresivamente un modelo de agente inteligente capaz de interpretar los movimientos de las manos mediante una cámara y transformarlos en señales de dirección dentro de un entorno de simulación.
 
@@ -506,7 +506,7 @@ A lo largo de las seis fases se desarrollaron los siguientes componentes:
 - **Fase 5 – Sistema de razonamiento:** diseño del árbol de decisiones, pruebas de escritorio y mecanismos para prevenir sesgos.
 - **Fase 6 – Motivación y seguridad:** definición de prioridades, función de recompensa y protocolos de seguridad para responder ante errores y situaciones de riesgo.
 
-### 7.2 Integración de los componentes
+### Integración de los componentes
 
 La integración de las diferentes fases permite establecer una arquitectura conceptual organizada, donde cada componente cumple una función específica dentro del comportamiento general de CAMERADRIVE.
 
@@ -519,21 +519,20 @@ El funcionamiento propuesto sigue este proceso:
 5. **Interacción:** comunica sus resultados mediante señales visuales, indicadores y advertencias.
 6. **Seguridad:** evita generar nuevos comandos cuando detecta incertidumbre, errores o situaciones que requieren una pausa.
 
-### 7.3 Resultado general del proyecto
+### Resultado general del proyecto
 
 CAMERADRIVE plantea una solución de interacción basada en el reconocimiento visual de movimientos de las manos. Su propósito es facilitar el envío de instrucciones de dirección dentro de un entorno de simulación, reduciendo la dependencia de los controles tradicionales.
 
 El diseño integra percepción, memoria, razonamiento, interacción y seguridad para establecer un agente organizado, capaz de interpretar información y responder de acuerdo con condiciones previamente definidas.
 
-### 7.4 Conclusión final
+###  Conclusión final
 
 El desarrollo de CAMERADRIVE permitió comprender que la construcción de un agente inteligente no depende únicamente de su capacidad para recibir información y ejecutar instrucciones. También requiere mecanismos de percepción, memoria, razonamiento, motivación y seguridad que permitan tomar decisiones coherentes.
-
 A través de las seis fases se establecieron las bases conceptuales y lógicas del proyecto, identificando tanto las capacidades esperadas como las condiciones que deben controlarse para ofrecer una interacción confiable.
 
 Como resultado, CAMERADRIVE cuenta con una propuesta estructurada que puede servir como base para futuras etapas de programación, implementación de visión artificial y validación en un entorno de simulación.
 
-### 7.5 Trabajo futuro
+### Trabajo futuro
 
 Para continuar con el desarrollo del proyecto se proponen las siguientes mejoras:
 
