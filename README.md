@@ -460,3 +460,88 @@ Para evaluar el comportamiento esperado del agente se establecen los siguientes 
 ### 6.6 Principio de motivación
 
 El éxito de CAMERADRIVE no consiste en responder lo más rápido posible, sino en ofrecer una interpretación confiable y una interacción segura. Cuando no cuenta con información suficiente, reconocer la incertidumbre y esperar es una decisión correcta.
+
+**Situación 1. Frustración del usuario**
+
+El usuario manifiesta que el sistema no responde correctamente.
+
+Respuesta: mostrar un indicador de atención, sugerir una pausa y permitir reiniciar el proceso.
+
+**Situación 2. Fallo de detección**
+
+La cámara pierde las manos o identifica movimientos poco confiables.
+
+Respuesta: detener la emisión de nuevos comandos y mostrar una advertencia.
+
+**Situación 3. Situación de riesgo**
+
+El usuario indica que desea detener la simulación o se identifica una condición que exige detenerla.
+
+Respuesta: activar una pausa de seguridad, bloquear nuevos comandos y permitir la intervención humana si es necesaria.
+
+**Situación 4. Malestar emocional grave**
+
+El usuario comunica explícitamente una situación de angustia o peligro.
+
+Respuesta: detener la interacción de simulación, mostrar un mensaje de apoyo y orientar al usuario para buscar ayuda humana.
+
+**Diagrama de flujo**
+
+<img width="2586" height="1714" alt="mermaid-diagram" src="https://github.com/user-attachments/assets/1afe9c31-a9e8-46f1-9a00-d09cda8b0442" />
+
+**Integración y presentación final**
+
+## 7. Integración Final del Proyecto
+
+### 7.1 Consolidación de las fases
+
+Durante el desarrollo de CAMERADRIVE se construyó progresivamente un modelo de agente inteligente capaz de interpretar los movimientos de las manos mediante una cámara y transformarlos en señales de dirección dentro de un entorno de simulación.
+
+A lo largo de las seis fases se desarrollaron los siguientes componentes:
+
+- **Fase 1 – Identidad del agente:** definición del proyecto, misión, objetivos y perfil de CAMERADRIVE.
+- **Fase 2 – Sistema de percepción:** identificación de los sentidos y mecanismos de captura de información visual.
+- **Fase 3 – Sistema de memoria:** organización y almacenamiento de información relevante para el funcionamiento del agente.
+- **Fase 4 – Personalidad e interacción:** definición del estilo de comunicación y las señales visuales que recibe el usuario.
+- **Fase 5 – Sistema de razonamiento:** diseño del árbol de decisiones, pruebas de escritorio y mecanismos para prevenir sesgos.
+- **Fase 6 – Motivación y seguridad:** definición de prioridades, función de recompensa y protocolos de seguridad para responder ante errores y situaciones de riesgo.
+
+### 7.2 Integración de los componentes
+
+La integración de las diferentes fases permite establecer una arquitectura conceptual organizada, donde cada componente cumple una función específica dentro del comportamiento general de CAMERADRIVE.
+
+El funcionamiento propuesto sigue este proceso:
+
+1. **Captura:** la cámara recibe información visual del entorno y de los movimientos de las manos.
+2. **Percepción:** el agente identifica las manos y analiza sus movimientos.
+3. **Memoria:** utiliza la información relevante disponible para mantener la continuidad del proceso.
+4. **Razonamiento:** evalúa las condiciones y determina si existe información suficiente para generar una respuesta.
+5. **Interacción:** comunica sus resultados mediante señales visuales, indicadores y advertencias.
+6. **Seguridad:** evita generar nuevos comandos cuando detecta incertidumbre, errores o situaciones que requieren una pausa.
+
+### 7.3 Resultado general del proyecto
+
+CAMERADRIVE plantea una solución de interacción basada en el reconocimiento visual de movimientos de las manos. Su propósito es facilitar el envío de instrucciones de dirección dentro de un entorno de simulación, reduciendo la dependencia de los controles tradicionales.
+
+El diseño integra percepción, memoria, razonamiento, interacción y seguridad para establecer un agente organizado, capaz de interpretar información y responder de acuerdo con condiciones previamente definidas.
+
+### 7.4 Conclusión final
+
+El desarrollo de CAMERADRIVE permitió comprender que la construcción de un agente inteligente no depende únicamente de su capacidad para recibir información y ejecutar instrucciones. También requiere mecanismos de percepción, memoria, razonamiento, motivación y seguridad que permitan tomar decisiones coherentes.
+
+A través de las seis fases se establecieron las bases conceptuales y lógicas del proyecto, identificando tanto las capacidades esperadas como las condiciones que deben controlarse para ofrecer una interacción confiable.
+
+Como resultado, CAMERADRIVE cuenta con una propuesta estructurada que puede servir como base para futuras etapas de programación, implementación de visión artificial y validación en un entorno de simulación.
+
+### 7.5 Trabajo futuro
+
+Para continuar con el desarrollo del proyecto se proponen las siguientes mejoras:
+
+- Implementar un sistema de reconocimiento de manos mediante visión artificial.
+- Desarrollar la clasificación automática de movimientos de dirección.
+- Incorporar indicadores visuales en tiempo real.
+- Implementar mecanismos de detección de errores y pérdida de seguimiento.
+- Evaluar la precisión y el tiempo de respuesta del sistema.
+- Realizar pruebas con usuarios en un entorno de simulación controlado.
+
+**Estado del proyecto:** Diseño conceptual y lógico documentado. Las funcionalidades pendientes de programación deberán validarse durante las siguientes etapas de implementación.
