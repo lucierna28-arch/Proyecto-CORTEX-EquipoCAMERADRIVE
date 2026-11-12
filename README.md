@@ -387,3 +387,76 @@ Con el propósito de comprobar el funcionamiento lógico del árbol de decisione
 Los escenarios simulados permitieron comprobar que el árbol contempla diferentes condiciones de funcionamiento, incluyendo situaciones de incertidumbre. Se verificó que, cuando la información no es suficiente para determinar una dirección, el agente evita generar comandos y retorna al proceso de captura.
 
 Debido a esto, se estableció la necesidad de mantener rutas de retorno y respuestas específicas para las detecciones fallidas o ambiguas.
+
+### Motor de motivación
+
+Para CAMERADRIVE, considero que la prioridad debe ser:
+1. Seguridad del usuario.
+2. Precisión en la interpretación de movimientos.
+3. Claridad de los indicadores visuales.
+4. Facilidad de uso.
+5. Velocidad de respuesta.
+La velocidad nunca debe estar por encima de la seguridad.
+
+**Sistema de motivación y control**
+
+## 6. Sistema de Motivación y Control
+
+### 6.1 Objetivo principal del agente
+
+La motivación principal de CAMERADRIVE es proporcionar una interacción segura, precisa y confiable entre el usuario y el entorno de simulación, interpretando los movimientos de sus manos mediante una cámara y transformándolos en indicadores o comandos de dirección.
+
+El agente no debe priorizar la rapidez por encima de la seguridad. Su objetivo es interpretar correctamente las señales recibidas, evitar respuestas ante información dudosa y mantener informado al usuario durante el proceso.
+
+### 6.2 Prioridades numéricas
+
+CAMERADRIVE establece las siguientes prioridades para orientar sus decisiones:
+
+| Prioridad | Factor | Valor |
+|---|---|---:|
+| 1 | Seguridad del usuario | 5 |
+| 2 | Precisión de detección | 4 |
+| 3 | Claridad de los indicadores | 3 |
+| 4 | Facilidad de interacción | 2 |
+| 5 | Velocidad de respuesta | 1 |
+
+La escala representa la importancia relativa de cada factor. Los valores no son resultados de mediciones experimentales.
+
+### 6.3 Función de recompensa (Reward Function)
+
+La función de recompensa representa los criterios que CAMERADRIVE debe considerar para evaluar la calidad de su comportamiento.
+
+Se propone la siguiente expresión:
+
+**R = 50S + 30P + 15C + 5V**
+
+Donde:
+
+- **S:** cumplimiento de las condiciones de seguridad.
+- **P:** precisión en la interpretación de los movimientos.
+- **C:** claridad de las señales e indicadores.
+- **V:** eficiencia en el tiempo de respuesta.
+
+Cada variable se considera en una escala de 0 a 1.
+
+La seguridad también funciona como una condición obligatoria: si la detección no es confiable o existe una situación de riesgo, el agente debe evitar generar un nuevo comando, independientemente de la puntuación obtenida en los demás factores.
+
+### 6.4 Regla lógica de equilibrio
+
+CAMERADRIVE prioriza la seguridad y la precisión sobre la velocidad. Cuando identifica información visual incompleta, movimientos contradictorios o una detección poco confiable, evita generar comandos y espera una nueva captura.
+
+Cuando la interpretación es correcta y cumple las condiciones establecidas, el agente puede continuar con la clasificación del movimiento y mostrar el indicador correspondiente.
+
+### 6.5 Métricas de éxito
+
+Para evaluar el comportamiento esperado del agente se establecen los siguientes criterios:
+
+- **Precisión:** interpretar correctamente los movimientos identificados.
+- **Seguridad:** evitar comandos cuando exista incertidumbre.
+- **Confiabilidad:** mantener respuestas coherentes ante capturas consecutivas.
+- **Comunicación visual:** mostrar indicadores comprensibles y oportunos.
+- **Estabilidad:** recuperarse de errores de detección sin interrumpir innecesariamente el proceso.
+
+### 6.6 Principio de motivación
+
+El éxito de CAMERADRIVE no consiste en responder lo más rápido posible, sino en ofrecer una interpretación confiable y una interacción segura. Cuando no cuenta con información suficiente, reconocer la incertidumbre y esperar es una decisión correcta.
