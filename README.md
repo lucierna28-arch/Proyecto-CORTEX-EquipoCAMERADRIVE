@@ -402,7 +402,7 @@ La velocidad nunca debe estar por encima de la seguridad.
 
 ## Sistema de Motivación y Control
 
-### 6.1 Objetivo principal del agente
+### Objetivo principal del agente
 
 La motivación principal de CAMERADRIVE es proporcionar una interacción segura, precisa y confiable entre el usuario y el entorno de simulación, interpretando los movimientos de sus manos mediante una cámara y transformándolos en indicadores o comandos de dirección.
 
