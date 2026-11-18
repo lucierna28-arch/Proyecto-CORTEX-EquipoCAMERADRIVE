@@ -301,9 +301,6 @@ Los escenarios describen el comportamiento esperado del sistema. Su funcionamien
 
 ## El Árbol de la verdad
 
-Diseñar el flujo lógico de toma de decisiones de CAMERADRIVE mediante un árbol de decisión que represente cómo el agente procesa la información capturada por la cámara, evalúa la confiabilidad de la detección e interpreta los movimientos de las manos para generar una respuesta visual en un entorno de simulación.
-
-### Descripción del algoritmo
 
 El árbol de decisión comienza con la captura de una imagen mediante la cámara. A partir de esta información, el agente sigue una secuencia de comprobaciones que determina si puede interpretar el movimiento observado. En primer lugar, verifica si las manos están presentes en la imagen. Si no se detectan, el sistema contempla mostrar una advertencia y esperar una nueva captura. Si las manos son detectadas, se evalúa la confiabilidad de la información antes de continuar con la interpretación.
 Posteriormente, el agente analiza el movimiento para determinar si su dirección es clara y si cumple los criterios establecidos. Cuando la señal es válida, puede clasificar el movimiento y asociarlo con el indicador correspondiente. En cambio, si el movimiento es ambiguo, insuficiente o poco confiable, el diseño contempla evitar una nueva orden de dirección basada en esa información y comunicar la situación mediante una señal visual.
